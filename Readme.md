@@ -52,3 +52,7 @@ Start the web application
   npm start
 ```
 
+## Screenshots
+
+![App Screenshot](screenshot.png)
+
