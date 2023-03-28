@@ -17,7 +17,7 @@ function App() {
     const formData = new FormData();
     formData.append("file", selectedFile);
 
-    fetch("http://localhost:5000/upload", {
+    fetch("http://localhost:5000/fitModel", {
       method: "POST",
       body: formData,
     })
@@ -37,18 +37,24 @@ function App() {
 
   return (
     <Container>
-      <h1>File Upload Example:</h1>
+      <h1>Scatter Plot and Linear Fit</h1>
+      <p>Upload data in a csv file to fit model</p>
       <Input type="file" onChange={onFileChange} />
       <Button onClick={onFileUpload} endIcon={<FileUploadIcon />}>
         SUBMIT
       </Button>
       <div>
         {graph && (
-          <ScatterPlot
-            data={graph.data}
-            slope={graph.slope}
-            intercept={graph.intercept}
-          />
+          <div>
+            <ScatterPlot
+              data={graph.data}
+              slope={graph.slope}
+              intercept={graph.intercept}
+            />
+            <p>
+              slope = {graph.slope}; intercept={graph.intercept}
+            </p>
+          </div>
         )}
       </div>
     </Container>

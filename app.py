@@ -5,9 +5,9 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 
-@app.route('/upload', methods=['POST'])
+@app.route('/fitModel', methods=['POST'])
 @cross_origin(origin='*',headers=['Content- Type','Authorization'])
-def upload_file():
+def fit_linear_model():
     file = request.files['file']
     data = pd.read_csv(file)
     x = data['x']
